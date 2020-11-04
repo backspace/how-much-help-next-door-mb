@@ -23,10 +23,12 @@
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
+    "@ember/render-modifiers": "^1.0.2",
     "@glimmer/component": "^1.0.2",
     "@glimmer/tracking": "^1.0.2",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
+    "d3-scale": "^3.2.3",
     "ember-auto-import": "^1.6.0",
     "ember-cli": "~3.22.0",
     "ember-cli-app-version": "^4.0.0",
