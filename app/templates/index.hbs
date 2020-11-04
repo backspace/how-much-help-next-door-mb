@@ -1,4 +1,13 @@
-<RequestChart @requests={{@model}} />
+{{#if this.activeRequest}}
+  <section class='activeRequest'>
+    <h4>{{this.activeRequest.title}}</h4>
+  </section>
+{{/if}}
+
+<RequestChart
+  @requests={{@model}}
+  @setActiveRequest={{fn (mut this.activeRequest)}}
+/>
 
 <ul>
   {{#each @model as |request|}}

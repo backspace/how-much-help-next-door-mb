@@ -4,12 +4,14 @@
   {{did-insert this.storeSvg}}
 >
   {{#each this.requestRects as |requestRect|}}
-    <rect
-      x={{requestRect.x}}
-      y={{requestRect.y}}
-      width={{requestRect.width}}
-      height={{requestRect.height}}
-      title={{requestRect.request.description}}
+    <Request
+      @x={{requestRect.x}}
+      @y={{requestRect.y}}
+      @width={{requestRect.width}}
+      @height={{requestRect.height}}
+      @request={{requestRect.request}}
+      {{on "mouseover" (fn @setActiveRequest requestRect.request)}}
+      {{on "mouseout" (fn @setActiveRequest 0)}}
     />
   {{/each}}
 </svg>
