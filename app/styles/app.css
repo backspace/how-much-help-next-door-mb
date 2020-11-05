@@ -32,6 +32,10 @@ aside ul {
   list-style-type: none;
 }
 
+.count {
+  font-size: 50%;
+}
+
 .category-swatch {
   display: inline-block;
   width: 1rem;

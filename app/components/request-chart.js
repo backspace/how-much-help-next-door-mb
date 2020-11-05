@@ -53,6 +53,7 @@ export default class RequestChartComponent extends Component {
       key,
       label: this.categoryIdToLabel[key],
       active: this.activeCategoryIds.includes(key),
+      count: this.args.requests.categoryCounts[key],
     }));
   }
 
@@ -61,6 +62,7 @@ export default class RequestChartComponent extends Component {
       key,
       label: this.statusIdToLabel[key],
       active: this.activeStatusIds.includes(key),
+      count: this.args.requests.statusCounts[key],
     }));
   }
 
@@ -87,7 +89,7 @@ export default class RequestChartComponent extends Component {
   }
 
   get filteredRequests() {
-    return this.args.requests.filter(
+    return this.args.requests.requests.filter(
       (request) =>
         this.activeCategoryIds.includes(request.category + '') &&
         this.activeStatusIds.includes(request.status + '')

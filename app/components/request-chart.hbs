@@ -12,6 +12,7 @@
         <label for="category-checkbox-{{keyAndActive.key}}">
           <span class="category-swatch category-{{keyAndActive.key}}"></span>
           {{keyAndActive.label}}
+          <span class="count">{{keyAndActive.count}}</span>
         </label>
       </li>
     {{/each}}
@@ -29,6 +30,7 @@
 
         <label for="status-checkbox-{{keyAndActive.key}}">
           {{keyAndActive.label}}
+          <span class="count">{{keyAndActive.count}}</span>
         </label>
       </li>
     {{/each}}
