@@ -16,7 +16,16 @@ export default class RequestChartComponent extends Component {
     6: 'COVID-19 Volunteer Support',
   };
 
+  statusIdToLabel = {
+    0: 'New',
+    1: 'Approved',
+    2: 'Matched',
+    3: 'Cancelled',
+    4: 'Rejected',
+  };
+
   @tracked activeCategoryIds = Object.keys(this.categoryIdToLabel);
+  @tracked activeStatusIds = ['0', '1', '2'];
 
   @action storeSvg(svg) {
     this.svg = svg;
@@ -30,11 +39,27 @@ export default class RequestChartComponent extends Component {
     }
   }
 
+  @action toggleStatusId(statusId) {
+    if (this.activeStatusIds.includes(statusId)) {
+      this.activeStatusIds.removeObject(statusId);
+    } else {
+      this.activeStatusIds.pushObject(statusId);
+    }
+  }
+
   get categoryIdsActive() {
     return Object.keys(this.categoryIdToLabel).map((key) => ({
       key,
       label: this.categoryIdToLabel[key],
       active: this.activeCategoryIds.includes(key),
+    }));
+  }
+
+  get statusIdsActive() {
+    return Object.keys(this.statusIdToLabel).map((key) => ({
+      key,
+      label: this.statusIdToLabel[key],
+      active: this.activeStatusIds.includes(key),
     }));
   }
 
@@ -59,8 +84,10 @@ export default class RequestChartComponent extends Component {
   }
 
   get filteredRequests() {
-    return this.args.requests.filter((request) =>
-      this.activeCategoryIds.includes(request.category + '')
+    return this.args.requests.filter(
+      (request) =>
+        this.activeCategoryIds.includes(request.category + '') &&
+        this.activeStatusIds.includes(request.status + '')
     );
   }
 
