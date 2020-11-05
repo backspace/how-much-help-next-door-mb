@@ -1,6 +1,5 @@
 html, body {
   width: 100%;
-  height: 100%;
   margin: 0;
 
   font-family: 'Gothic A1';
@@ -8,11 +7,10 @@ html, body {
 
 svg {
   width: 100%;
-  height: 100%;
 }
 
 .activeRequest {
-  position: absolute;
+  position: fixed;
   background: #ddd;
   border: 1px solid #bbb;
   margin: 0.5rem;
@@ -91,7 +89,12 @@ aside ul:first-child {
   background-color: #ffa600;
 }
 
+.tick-label {
+  position: fixed;
+}
+
 line.grid {
+  position: fixed;
   stroke-width: 1px;
   stroke: #ccc;
 }

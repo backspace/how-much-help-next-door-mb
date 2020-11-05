@@ -46,10 +46,11 @@
 
 <svg
   width="100%"
-  height="100%"
+  height="{{this.height}}px"
   {{did-insert this.storeSvg}}
 >
   {{#each this.requestRects as |requestRect|}}
+    <text>x</text>
     <Request
       @x={{requestRect.x}}
       @y={{requestRect.y}}
@@ -74,7 +75,7 @@
       class='tick-label'
       text-anchor='middle'
       x={{tick.x}}
-      y={{tick.yLabel}}
+      y='15'
     >
       {{tick.label}}
     </text>

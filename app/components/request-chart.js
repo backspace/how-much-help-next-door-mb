@@ -63,11 +63,11 @@ export default class RequestChartComponent extends Component {
   }
 
   get requestHeight() {
-    if (this.svg) {
-      return this.svg.clientHeight / this.filteredRequests.length;
-    } else {
-      return undefined;
-    }
+    return 10;
+  }
+
+  get height() {
+    return this.filteredRequests.length * this.requestHeight;
   }
 
   get filteredRequests() {
@@ -79,7 +79,7 @@ export default class RequestChartComponent extends Component {
   }
 
   get requestRects() {
-    if (!this.requestHeight) {
+    if (!this.svg) {
       return [];
     }
 
