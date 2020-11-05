@@ -26,26 +26,23 @@ export default class RequestChartComponent extends Component {
     4: 'Rejected',
   };
 
-  @tracked activeCategoryIds = Object.keys(this.categoryIdToLabel);
-  @tracked activeStatusIds = ['0', '1', '2'];
-
   @action storeSvg(svg) {
     this.svg = svg;
   }
 
   @action toggleCategoryId(categoryId) {
-    if (this.activeCategoryIds.includes(categoryId)) {
-      this.activeCategoryIds.removeObject(categoryId);
+    if (this.args.activeCategoryIds.includes(categoryId)) {
+      this.args.activeCategoryIds.removeObject(categoryId);
     } else {
-      this.activeCategoryIds.pushObject(categoryId);
+      this.args.activeCategoryIds.pushObject(categoryId);
     }
   }
 
   @action toggleStatusId(statusId) {
-    if (this.activeStatusIds.includes(statusId)) {
-      this.activeStatusIds.removeObject(statusId);
+    if (this.args.activeStatusIds.includes(statusId)) {
+      this.args.activeStatusIds.removeObject(statusId);
     } else {
-      this.activeStatusIds.pushObject(statusId);
+      this.args.activeStatusIds.pushObject(statusId);
     }
   }
 
@@ -53,7 +50,7 @@ export default class RequestChartComponent extends Component {
     return Object.keys(this.categoryIdToLabel).map((key) => ({
       key,
       label: this.categoryIdToLabel[key],
-      active: this.activeCategoryIds.includes(key),
+      active: this.args.activeCategoryIds.includes(key),
       count: this.args.requests.categoryCounts[key],
     }));
   }
@@ -62,7 +59,7 @@ export default class RequestChartComponent extends Component {
     return Object.keys(this.statusIdToLabel).map((key) => ({
       key,
       label: this.statusIdToLabel[key],
-      active: this.activeStatusIds.includes(key),
+      active: this.args.activeStatusIds.includes(key),
       count: this.args.requests.statusCounts[key],
     }));
   }
@@ -92,8 +89,8 @@ export default class RequestChartComponent extends Component {
   get filteredRequests() {
     return this.args.requests.requests.filter(
       (request) =>
-        this.activeCategoryIds.includes(request.category + '') &&
-        this.activeStatusIds.includes(request.status + '')
+        this.args.activeCategoryIds.includes(request.category + '') &&
+        this.args.activeStatusIds.includes(request.status + '')
     );
   }
 
