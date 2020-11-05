@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 import { scaleLinear } from 'd3-scale';
+import { DateTime } from 'luxon';
 
 export default class RequestChartComponent extends Component {
   @tracked svg;
@@ -63,15 +64,17 @@ export default class RequestChartComponent extends Component {
     }));
   }
 
+  get earliestCreatedTime() {
+    return this.filteredRequests[0].createdTime;
+  }
+
   get now() {
     return Date.now();
   }
 
   get xScale() {
-    const earliestCreatedTime = this.filteredRequests[0].createdTime;
-
     return scaleLinear()
-      .domain([earliestCreatedTime, this.now])
+      .domain([this.earliestCreatedTime, this.now])
       .rangeRound([0, this.svg.clientWidth]);
   }
 
@@ -108,5 +111,29 @@ export default class RequestChartComponent extends Component {
         request,
       };
     });
+  }
+
+  get ticks() {
+    if (!this.svg) {
+      return [];
+    }
+
+    const months = [];
+
+    let current = DateTime.fromMillis(this.earliestCreatedTime).startOf(
+      'month'
+    );
+
+    do {
+      months.push(current);
+      current = current.plus({ month: 1 });
+    } while (current.toMillis() < this.now);
+
+    return months.map((month) => ({
+      x: this.xScale(month.toMillis()),
+      y2: this.svg.clientHeight,
+      yLabel: this.svg.clientHeight - 10,
+      label: month.toFormat('LLL'),
+    }));
   }
 }

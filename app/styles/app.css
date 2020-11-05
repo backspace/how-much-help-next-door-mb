@@ -69,3 +69,8 @@ aside ul {
   fill: #ffa600;
   background-color: #ffa600;
 }
+
+line.grid {
+  stroke-width: 1px;
+  stroke: #ccc;
+}
