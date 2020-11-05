@@ -35,11 +35,18 @@ aside {
 
   display: flex;
   justify-content: flex-end;
-  padding-right: 2rem;
+  padding: 1rem 2rem;
+
+  background: rgba(255, 255, 255, 0.2);
 }
 
 aside ul {
   list-style-type: none;
+  padding: 0;
+}
+
+aside ul:first-child {
+  padding-right: 1rem;
 }
 
 .count {
