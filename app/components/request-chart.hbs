@@ -1,3 +1,20 @@
+<ul>
+  {{#each this.categoryIdsActive as |keyAndActive|}}
+    <li>
+      <Input
+        @id="category-checkbox-{{keyAndActive.key}}"
+        @type="checkbox"
+        @checked={{keyAndActive.active}}
+        {{on "input" (fn this.toggleCategoryId keyAndActive.key)}}
+      />
+
+      <label for="category-checkbox-{{keyAndActive.key}}">
+        {{keyAndActive.label}}
+      </label>
+    </li>
+  {{/each}}
+</ul>
+
 <svg
   width="100%"
   height="100%"
