@@ -1,7 +1,6 @@
-# how-much-help
+# How Much Help Next Door MB
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This renders data taken from the Help Next Door MB API.
 
 ## Prerequisites
 
