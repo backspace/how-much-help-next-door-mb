@@ -1,36 +1,38 @@
-<ul>
-  {{#each this.categoryIdsActive as |keyAndActive|}}
-    <li>
-      <Input
-        @id="category-checkbox-{{keyAndActive.key}}"
-        @type="checkbox"
-        @checked={{keyAndActive.active}}
-        {{on "input" (fn this.toggleCategoryId keyAndActive.key)}}
-      />
+<aside>
+  <ul>
+    {{#each this.categoryIdsActive as |keyAndActive|}}
+      <li>
+        <Input
+          @id="category-checkbox-{{keyAndActive.key}}"
+          @type="checkbox"
+          @checked={{keyAndActive.active}}
+          {{on "input" (fn this.toggleCategoryId keyAndActive.key)}}
+        />
 
-      <label for="category-checkbox-{{keyAndActive.key}}">
-        {{keyAndActive.label}}
-      </label>
-    </li>
-  {{/each}}
-</ul>
+        <label for="category-checkbox-{{keyAndActive.key}}">
+          {{keyAndActive.label}}
+        </label>
+      </li>
+    {{/each}}
+  </ul>
 
-<ul>
-  {{#each this.statusIdsActive as |keyAndActive|}}
-    <li>
-      <Input
-        @id="status-checkbox-{{keyAndActive.key}}"
-        @type="checkbox"
-        @checked={{keyAndActive.active}}
-        {{on "input" (fn this.toggleStatusId keyAndActive.key)}}
-      />
+  <ul>
+    {{#each this.statusIdsActive as |keyAndActive|}}
+      <li>
+        <Input
+          @id="status-checkbox-{{keyAndActive.key}}"
+          @type="checkbox"
+          @checked={{keyAndActive.active}}
+          {{on "input" (fn this.toggleStatusId keyAndActive.key)}}
+        />
 
-      <label for="status-checkbox-{{keyAndActive.key}}">
-        {{keyAndActive.label}}
-      </label>
-    </li>
-  {{/each}}
-</ul>
+        <label for="status-checkbox-{{keyAndActive.key}}">
+          {{keyAndActive.label}}
+        </label>
+      </li>
+    {{/each}}
+  </ul>
+</aside>
 
 <svg
   width="100%"

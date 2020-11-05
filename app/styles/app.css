@@ -15,3 +15,17 @@ svg {
   margin: 0.5rem;
   width: 100%;
 }
+
+aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+aside ul {
+  list-style-type: none;
+}
