@@ -30,22 +30,6 @@ export default class RequestChartComponent extends Component {
     this.svg = svg;
   }
 
-  @action toggleCategoryId(categoryId) {
-    if (this.args.activeCategoryIds.includes(categoryId)) {
-      this.args.activeCategoryIds.removeObject(categoryId);
-    } else {
-      this.args.activeCategoryIds.pushObject(categoryId);
-    }
-  }
-
-  @action toggleStatusId(statusId) {
-    if (this.args.activeStatusIds.includes(statusId)) {
-      this.args.activeStatusIds.removeObject(statusId);
-    } else {
-      this.args.activeStatusIds.pushObject(statusId);
-    }
-  }
-
   get categoryIdsActive() {
     return Object.keys(this.categoryIdToLabel).map((key) => ({
       key,

@@ -1,5 +1,8 @@
 <RequestChart
   @requests={{@model}}
-  @activeCategoryIds={{this.categories}}
-  @activeStatusIds={{this.statuses}}
+  @activeCategoryIds={{this.categoriesArray}}
+  @activeStatusIds={{this.statusesArray}}
+
+  @toggleCategory={{this.toggleCategory}}
+  @toggleStatus={{this.toggleStatus}}
 />
