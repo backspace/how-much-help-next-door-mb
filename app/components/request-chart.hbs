@@ -2,8 +2,6 @@
   <ul>
     {{#each this.categoryIdsActive as |keyAndActive|}}
       <li>
-        <span class="category-swatch category-{{keyAndActive.key}}"></span>
-
         <Input
           @id="category-checkbox-{{keyAndActive.key}}"
           @type="checkbox"
@@ -12,6 +10,7 @@
         />
 
         <label for="category-checkbox-{{keyAndActive.key}}">
+          <span class="category-swatch category-{{keyAndActive.key}}"></span>
           {{keyAndActive.label}}
         </label>
       </li>
