@@ -68,7 +68,7 @@ export default class RequestChartComponent extends Component {
   }
 
   get earliestCreatedTime() {
-    return this.filteredRequests[0].createdTime;
+    return this.args.requests.requests[0].createdTime;
   }
 
   get now() {
