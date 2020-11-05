@@ -13,9 +13,19 @@ svg {
 
 .activeRequest {
   position: absolute;
-  background: teal;
+  background: #ddd;
+  border: 1px solid #bbb;
   margin: 0.5rem;
-  width: 100%;
+  max-width: 20rem;
+  padding: 1rem;
+}
+
+.activeRequest.bottom {
+  bottom: 0;
+}
+
+.activeRequest h4 {
+  margin-top: 0;
 }
 
 aside {

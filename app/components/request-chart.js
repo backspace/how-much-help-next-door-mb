@@ -7,6 +7,7 @@ import { DateTime } from 'luxon';
 
 export default class RequestChartComponent extends Component {
   @tracked svg;
+  @tracked activeRequestRect;
 
   categoryIdToLabel = {
     1: 'Pickup / Delivery',
@@ -113,6 +114,14 @@ export default class RequestChartComponent extends Component {
         request,
       };
     });
+  }
+
+  get activeRequestClass() {
+    if (this.activeRequestRect.y < this.svg.clientHeight / 2) {
+      return 'bottom';
+    } else {
+      return '';
+    }
   }
 
   get ticks() {

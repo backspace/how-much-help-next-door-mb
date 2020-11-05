@@ -1,0 +1,14 @@
+  <section class='activeRequest' ...attributes>
+    <h4>{{@request.title}}</h4>
+    <p>{{@request.description}}</p>
+
+    {{#if @request.redactedAddress}}
+      <address>
+        {{#if @request.redactedAddress.sublocality}}{{@request.redactedAddress.sublocality}}, {{/if}}
+        {{@request.redactedAddress.city}}
+      </address>
+    {{/if}}
+
+    Made: {{this.requestMade}}<br>
+    Matched: {{this.requestMatched}}
+  </section>
