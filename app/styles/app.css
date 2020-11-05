@@ -29,3 +29,41 @@ aside {
 aside ul {
   list-style-type: none;
 }
+
+.category-swatch {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.category-1 {
+  fill: #003f5c;
+  background-color: #003f5c;
+}
+
+.category-2 {
+  fill: #444e86;
+  background-color: #444e86;
+}
+
+.category-3 {
+  fill: #955196;
+  background-color: #955196;
+}
+
+.category-4 {
+  fill: #dd5182;
+  background-color: #dd5182;
+}
+
+.category-5 {
+  fill: #ff6e54;
+  background-color: #ff6e54;
+}
+
+.category-6 {
+  fill: #ffa600;
+  background-color: #ffa600;
+}
